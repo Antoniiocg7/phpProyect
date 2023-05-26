@@ -6,7 +6,12 @@
 <form action="store.php" method="POST" autocomplete="off">
     <div class="mb-3 ms-3 me-5">
 
-        <div class="row g-3">
+            <div class="col">
+                <label for="id_dni" class="form-label">DNI</label>
+                <input type="text" name="nombre" class="form-control mb-2" id="id_dni" required>
+            </div>
+
+        <div class="row g-5">
             <div class="col">
                 <label for="id_email" class="form-label">Email</label>
                 <input type="text" name="nombre" class="form-control mb-2" id="id_email" required>
@@ -18,10 +23,14 @@
             </div>
         </div>
 
-        <label for="id_nombre" class="form-label">Nombre</label>
-        <input type="text" name="nombre" class="form-control mb-2" id="id_nombre" required>
+        
+        <div class="row g-5">
 
-        <div class="row g-3">
+            <div class="col">
+                <label for="id_nombre" class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control mb-2" id="id_nombre" required>
+            </div>
+            
             <div class="col">
                 <label for="id_apellido_1" class="form-label">Primer Apellido</label>
                 <input type="text" name="nombre" class="form-control mb-2" id="id_apellido_1" required>
