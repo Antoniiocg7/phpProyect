@@ -21,7 +21,7 @@
         <img src="Imagenes/moon.png" id="moon">
         <img src="Imagenes/mountains_behind.png" id="mountains_behind">
         <h2 id="text">Muñon Dreams</h2>
-        <a href="phpProyect/view/cliente/index.php" id="btn">Explorar</a>
+        <a href="view/cliente/index.php" id="btn">Explorar</a>
         <img src="Imagenes/mountains_front.png" id="mountains_front">
     </section>
     <div class="sec" id="sec">
