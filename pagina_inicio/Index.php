@@ -17,28 +17,28 @@
         </ul>
     </header>
     <section>
-        <img src="Imagenes/stars.png" id="stars">
-        <img src="Imagenes/moon.png" id="moon">
-        <img src="Imagenes/mountains_behind.png" id="mountains_behind">
+        <img src="../Imagenes/stars.png" id="stars">
+        <img src="../Imagenes/moon.png" id="moon">
+        <img src="../Imagenes/mountains_behind.png" id="mountains_behind">
         <h2 id="text">Muñon Dreams</h2>
-        <a href="view/cliente/index.php" id="btn">Explorar</a>
-        <img src="Imagenes/mountains_front.png" id="mountains_front">
+        <a href="/view/cliente/index.php" id="btn">Explorar</a>
+        <img src="../Imagenes/mountains_front.png" id="mountains_front">
     </section>
     <div class="sec" id="sec">
         <h2>Mejores Valoradas</h2>
         <div class="slider">
 			<ul>
 				<li>
-                    <img src="Imagenes/slider1.jpg" alt="">
+                    <img src="../Imagenes/slider1.jpg" alt="">
                 </li>
 				<li>
-                    <img src="Imagenes/slider2.jpg" alt="">
+                    <img src="../Imagenes/slider2.jpg" alt="">
                 </li>
 				<li>
-                    <img src="Imagenes/slider3.jpg" alt="">
+                    <img src="../Imagenes/slider3.jpg" alt="">
                 </li>
 				<li>
-                    <img src="Imagenes/slider4.jpg" alt="">
+                    <img src="/Imagenes/slider4.jpg" alt="">
                 </li>
 			</ul>
 		</div>       
