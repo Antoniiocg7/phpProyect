@@ -1,5 +1,5 @@
 <?php
     require_once "../../controllers/clienteController.php";
-    $usernameController = new ClienteController();
-    $usernameController->delete($_GET["dni"]);
+    $clienteController = new ClienteController();
+    $clienteController->delete($_GET["dni"]);
 ?>
