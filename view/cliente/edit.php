@@ -3,6 +3,7 @@
     require_once "c:/xampp/htdocs/phpProyect/controllers/clienteController.php";
     $clienteController = new ClienteController();
     $cliente = $clienteController->show($_GET["dni"]);
+    //TODO: Implementar demas atributos y optimizar rutas
 ?>
 
 <h2>Modificando Registro</h2>
@@ -16,11 +17,11 @@
     <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-2 col-form-label">Nuevo Nombre:</label>
         <div class="col-sm-10">
-        <input type="text" name="nombre" class="form-control" id="inputPassword" value="<?php echo $user["nombre"] ?>">
+        <input type="text" name="nombre" class="form-control" id="inputPassword" value="<?php echo $cliente["nombre"] ?>">
         </div>
     </div>
     <div>
-        <a class="btn btn-secondary" href="show.php?id=<?php echo $user["dni"]?>" >Cancelar</a>
+        <a class="btn btn-secondary" href="show.php?id=<?php echo $cliente["dni"]?>" >Cancelar</a>
         <input type="submit" class="btn btn-success" value="Actualizar">
     </div>
 </form>

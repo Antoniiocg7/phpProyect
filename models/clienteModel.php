@@ -25,7 +25,7 @@
         }
 
         public function show ($dni) {
-            $stmt = $this->PDO->prepare("SELECT * FROM username where dni = :dni limit 1");
+            $stmt = $this->PDO->prepare("SELECT * FROM cliente where dni = :dni limit 1");
             $stmt->bindParam(":dni", $dni);
             return ($stmt->execute()) ? $stmt->fetch() : false;
         }
