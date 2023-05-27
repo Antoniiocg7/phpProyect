@@ -43,6 +43,24 @@
                                 <li><a class="dropdown-item" href="../cliente/create.php">Agregar nuevos clientes</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reservas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../cliente/index.php">Listado Reservas</a></li>
+                                <li><a class="dropdown-item" href="../cliente/create.php">Agregar nuevas reservas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Habitaciones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../cliente/index.php">Listado Habitaciones</a></li>
+                                <li><a class="dropdown-item" href="../cliente/create.php">Agregar nuevas habitaciones</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
