@@ -8,7 +8,7 @@
 <h2 class="text-center">Detalles del registro</h2>
 <div class="pb3">
   <a href="index.php" class="btn btn-primary">Regresar</a>
-  <a href="edit.php?dni=<?=$data["dni"]?>" class="btn btn-success">Editar</a>
+  <a href="edit.php?dni=<?php echo $data["dni"]?>" class="btn btn-success">Editar</a>
   <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</a>
 
   <!-- Modal -->
