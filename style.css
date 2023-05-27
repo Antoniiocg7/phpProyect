@@ -248,6 +248,70 @@ section img#mountains_front
     color: #fff;
 }
 
-
+footer {
+    background: linear-gradient(to top,#700666,#460342);
+    color: #fff;
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
   
+  .contact-info,
+  .social-media,
+  .subscribe {
+    text-align: center;
+    margin-bottom: 30px;
+    flex-basis: 33%;
+  }
+  
+  .contact-info h4,
+  .social-media h4,
+  .subscribe h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p,
+  .social-media ul,
+  .subscribe form {
+    margin-bottom: 10px;
+  }
+  
+  .social-media ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .social-media ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social-media ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .subscribe input[type="text"],
+  .subscribe input[type="email"],
+  .subscribe input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  
+  .subscribe input[type="submit"] {
+    background-color: #2b1055;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .subscribe input[type="submit"]:hover {
+    background-color: #fff;
+    color: #2b1055;
+  }
   

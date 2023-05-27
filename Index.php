@@ -74,7 +74,31 @@
             <button type="submit">Buscar</button>
         </form>
     </div>
-    
     <script src="scrips.js"></script>
+    <footer>
+  <div class="contact-info">
+    <h4>Contacto</h4>
+    <p>Teléfono: 123-456-789</p>
+    <p>Email: info@tupagina.com</p>
+  </div>
+  
+  <div class="social-media">
+    <h4>Redes Sociales</h4>
+    <ul>
+      <li><a href="https://www.facebook.com/tupagina" target="_blank">Facebook</a></li>
+      <li><a href="https://www.twitter.com/tupagina" target="_blank">Twitter</a></li>
+      <li><a href="https://www.instagram.com/tupagina" target="_blank">Instagram</a></li>
+    </ul>
+  </div>
+  
+  <div class="subscribe">
+    <h4>Suscríbete a nuestras noticias</h4>
+    <form action="suscripcion.php" method="post">
+      <input type="text" name="nombre" placeholder="Tu Nombre" required>
+      <input type="email" name="correo" placeholder="Tu Email" required>
+      <input type="submit" value="Suscribirse">
+    </form>
+  </div>
+</footer>
 </body>
 </html>
