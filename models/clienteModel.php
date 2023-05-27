@@ -79,7 +79,7 @@
         }
 
         public function delete($dni){
-            $stmt = $this->PDO->prepare("DELETE FROM username where dni = :dni");
+            $stmt = $this->PDO->prepare("DELETE FROM cliente where dni = :dni");
             $stmt->bindParam(":dni", $dni);
             return ($stmt->execute()) ? true : false;
         }

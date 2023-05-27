@@ -27,7 +27,7 @@
 
 <table class="table">
     <thead>
-        <th>Id</th>
+        <th>DNI</th>
         <th>Nombre</th>
         <th>Acciones</th>
     </thead>
@@ -38,8 +38,8 @@
                     <td><?php echo $pag["dni"] ?></td>
                     <td><?php echo $pag["nombre"] ?></td>
                     <td>
-                        <a href="show.php?id=<?php echo $pag["dni"] ?>" class="btn btn-primary">Ver</a>
-                        <a href="edit.php?id=<?php echo $pag["dni"] ?>" class="btn btn-success">Modificar</a>
+                        <a href="show.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-primary">Ver</a>
+                        <a href="edit.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-success">Modificar</a>
                         <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</a>
 
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <a href="delete.php?id=<?php echo $pag["dni"] ?>" class="btn btn-danger">Eliminar</a>
+                                        <a href="delete.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-danger">Eliminar</a>
                                     </div>
                                 </div>
                             </div>

@@ -8,7 +8,7 @@
 <h2 class="text-center">Detalles del registro</h2>
 <div class="pb3">
   <a href="index.php" class="btn btn-primary">Regresar</a>
-  <a href="edit.php?id=<?=$data["dni"]?>" class="btn btn-success">Editar</a>
+  <a href="edit.php?dni=<?=$data["dni"]?>" class="btn btn-success">Editar</a>
   <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</a>
 
   <!-- Modal -->
@@ -24,7 +24,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <a href="delete.php?index=<?= $data["dni"] ?>" class="btn btn-danger">Eliminar</a>
+          <a href="delete.php?dni=<?php echo $data["dni"] ?>" class="btn btn-danger">Eliminar</a>
         </div>
       </div>
     </div>
