@@ -1,6 +1,6 @@
 <?php
     require_once "../header_footer/header.php";
-    require_once("c://xampp/htdocs/phpProyect/controllers/clienteController.php");
+    require_once "../../controllers/clienteController.php";
     
     $clienteController = new ClienteController();
     $pagina_actual = 1; 
@@ -17,7 +17,7 @@
 ?>
 
 <div class="mb-3">
-    <a class="btn btn-primary" href="/pruebas_php/view/cliente/create.php">Agregar cliente</a>
+    <a class="btn btn-primary" href="/phpProyect/view/cliente/create.php">Agregar cliente</a>
 </div>
 
 <form method="get" action="index.php">
@@ -25,7 +25,7 @@
     <input type="submit" value="Filtrar">
 </form>
 
-<table class="table">
+<table class="table ps-5">
     <thead>
         <th>DNI</th>
         <th>Correo</th>
