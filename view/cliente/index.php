@@ -28,7 +28,7 @@
 <table class="table">
     <thead>
         <th>DNI</th>
-        <th>Nombre</th>
+        <th>Correo</th>
         <th>Acciones</th>
     </thead>
     <tbody>
@@ -36,7 +36,7 @@
             <?php foreach($usuarios_filtrados as $pag): ?>
                 <tr>
                     <td><?php echo $pag["dni"] ?></td>
-                    <td><?php echo $pag["nombre"] ?></td>
+                    <td><?php echo $pag["correo"] ?></td>
                     <td>
                         <a href="show.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-primary">Ver</a>
                         <a href="edit.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-success">Modificar</a>

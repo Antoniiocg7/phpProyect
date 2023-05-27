@@ -33,20 +33,43 @@
 
 
 
-<table class="table container-fluid">
+<table class="table table-striped container-fluid">
   <thead>
     <tr>
       <th scope="col">DNI</th>
+      <th scope="col">Correo</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Primer Apellido</th>
+      <th scope="col">Segundo Apellido</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Dirección</th>
+
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td scope="col"><?= $data[0]  ?></td>
+      <td scope="col"><?php echo $data[0] ?></td>
       <td scope="col"><?php echo $data[1] ?></td>
+      <td scope="col"><?php echo $data[3] ?></td>
+      <td scope="col"><?php echo $data[4] ?></td>
+      <td scope="col"><?php echo $data[5] ?></td>
+      <td scope="col"><?php echo $data[6] ?></td>
+      <td scope="col"><?php echo $data[7] ?></td>
+      
     </tr>
   </tbody>
 
+</table>
+
+<table class="table table-striped container-fluid">
+  <thead>
+    <tr>
+      <th>Reservas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td scope="col"><?php echo (empty($data[8])) ? "Ninguna" : $data[8] ?></td>
+  </tbody>
 </table>
 
 
