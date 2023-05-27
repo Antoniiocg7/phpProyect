@@ -40,9 +40,9 @@
                     <td>
                         <a href="show.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-primary">Ver</a>
                         <a href="edit.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-success">Modificar</a>
-                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</a>
+                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $pag["dni"] ?>">Eliminar</a>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal<?php echo $pag["dni"] ?>" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
