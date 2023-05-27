@@ -1,6 +1,6 @@
 <?php
     require_once "../header_footer/header.php";
-    require_once "c:/xampp/htdocs/phpProyect/controllers/clienteController.php";
+    require_once "../../controllers/clienteController.php";
     $clienteController = new ClienteController();
     $cliente = $clienteController->show($_GET["dni"]);
     //TODO: Optimizar rutas

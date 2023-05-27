@@ -4,7 +4,7 @@
         private $model;
 
         public function __construct(){
-            require_once "c:/xampp/htdocs/phpProyect/models/clienteModel.php";
+            require_once "../../models/clienteModel.php";
             $this->model = new ClienteModel();
         }
 
