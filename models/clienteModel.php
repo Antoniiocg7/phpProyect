@@ -3,7 +3,7 @@
         private $PDO;
 
         public function __construct(){
-            require_once("/config/data_base.php");
+            require_once("c:/xampp/htdocs/phpProyect/config/dataBase.php");
             $connection = new DataBase();
             $this->PDO = $connection->conectar_bd();
         }
