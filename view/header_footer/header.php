@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src='/models/pageModel.js'></script>
+    <script src="../../models/pageModel.js"></script>
     <title>
         <?php
 
