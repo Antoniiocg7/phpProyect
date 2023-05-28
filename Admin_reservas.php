@@ -2,9 +2,6 @@
 // Incluir el archivo de configuración de la base de datos
 $config = require 'config/dataBase.php';
 
-// Crear una instancia de la clase DataBase
-$db = new DataBase();
-
 // Establecer la conexión a la base de datos
 $conn = new mysqli("localhost", "root", "", "hotel_php");
 
@@ -54,29 +51,11 @@ $result = $conn->query($sql);
 
     <div class="content">
         <div class="sidebar">
-            <ul>
-                <form action="Agregar_Reservas.php" method="POST">
-                    <input type="hidden" name="reserva_id" value="">
-                    <button type="submit" class="link-button">Agregar Reserva</button>
-                </form>
-            
-                <form action="editar_reserva.php" method="POST">
-                    <input type="hidden" name="reserva_id" value="">
-                    <button type="submit" class="link-button">Editar Reserva</button>
-                </form>
-
-                <form action="eliminar_reserva.php" method="POST">
-                    <input type="hidden" name="reserva_id" value="">
-                    <button type="submit" class="link-button">Eliminar Reserva</button>
-                </form>
-
-                <li><a href="#">Salir al Menú</a></li>
-            </ul>
         </div>
 
         <div class="reservas">
             <div class="table-wrapper">
-                <form method="POST" action="procesar_seleccion.php">
+                <form method="POST" action="">
                     <table>
                         <tr>
                             <th>Seleccionar</th>
@@ -85,6 +64,7 @@ $result = $conn->query($sql);
                             <th>ID Habitación</th>
                             <th>Fecha Entrada</th>
                             <th>Fecha Salida</th>
+                            <th></th>
                         </tr>
                         <?php
                         if ($result->num_rows > 0) {
@@ -96,10 +76,29 @@ $result = $conn->query($sql);
                                         <td>" . $row["id_habitacion"] . "</td>
                                         <td>" . $row["fecha_entrada"] . "</td>
                                         <td>" . $row["fecha_salida"] . "</td>
+                                        <td>
+                                            <button type='submit' name='eliminar_reserva' value='" . $row["id"] . "' class='delete-button'>Eliminar</button>
+                                        </td>
                                     </tr>";
                             }
                         } else {
                             echo "<tr><td colspan='6'>No se encontraron reservas.</td></tr>";
+                        }
+
+                        // Procesar la solicitud de eliminación de reserva
+                        if (isset($_POST['eliminar_reserva'])) {
+                            $reserva_id = $_POST['eliminar_reserva'];
+
+                            // Aquí debes escribir la lógica para eliminar la reserva de la base de datos
+                            $delete_sql = "DELETE FROM reserva WHERE id = '$reserva_id'";
+                            if ($conn->query($delete_sql) === TRUE) {
+                                echo "Reserva eliminada exitosamente.";
+                            } else {
+                                echo "Error al eliminar la reserva: " . $conn->error;
+                            }
+                            
+                            // Actualizar la página después de eliminar la reserva
+                            echo "<meta http-equiv='refresh' content='0'>";
                         }
                         ?>
                     </table>
@@ -165,4 +164,3 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
-
