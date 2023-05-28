@@ -60,26 +60,26 @@ if (isset($_POST['editar_reserva'])) {
 
     <div class="content">
         <div class="sidebar">
+            <a href="Crear_Reserva.php">Crear Reserva</a>
         </div>
-
+        <div class="sidebar_Derecha">
+            <a href=""></a>
+        </div>
         <div class="reservas">
             <div class="table-wrapper">
                 <form method="POST" action="">
                     <table>
                         <tr>
-                            <th>Seleccionar</th>
                             <th>ID Reserva</th>
                             <th>ID Cliente</th>
                             <th>ID Habitación</th>
                             <th>Fecha Entrada</th>
                             <th>Fecha Salida</th>
-                            <th></th>
                         </tr>
                         <?php
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>
-                                        <td><input type='checkbox' name='reserva_seleccionada[]' value='" . $row["id"] . "'></td>
                                         <td>" . $row["id"] . "</td>
                                         <td>" . $row["id_cliente"] . "</td>
                                         <td>" . $row["id_habitacion"] . "</td>
