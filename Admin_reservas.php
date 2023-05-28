@@ -55,7 +55,7 @@ $result = $conn->query($sql);
     <div class="content">
         <div class="sidebar">
             <ul>
-                <form action="Agregar_Reservas" method="POST">
+                <form action="Agregar_Reservas.php" method="POST">
                     <input type="hidden" name="reserva_id" value="">
                     <button type="submit" class="link-button">Agregar Reserva</button>
                 </form>
