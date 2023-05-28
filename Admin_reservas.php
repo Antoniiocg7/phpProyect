@@ -43,31 +43,37 @@ $result = $conn->query($sql);
         </div>
 
         <div class="reservas">
-            <?php
-            if ($result->num_rows > 0) {
-                echo "<table>
-                        <tr>
-                            <th>ID</th>
-                            <th>ID Cliente</th>
-                            <th>ID Habitación</th>
-                            <th>Fecha Entrada</th>
-                            <th>Fecha Salida</th>
-                        </tr>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
-                            <td>" . $row["id"] . "</td>
-                            <td>" . $row["id_cliente"] . "</td>
-                            <td>" . $row["id_habitacion"] . "</td>
-                            <td>" . $row["fecha_entrada"] . "</td>
-                            <td>" . $row["fecha_salida"] . "</td>
-                        </tr>";
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar reservas...">
+                <button id="search-button">Buscar</button>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>ID Reserva</th>
+                    <th>ID Cliente</th>
+                    <th>ID Habitación</th>
+                    <th>Fecha Entrada</th>
+                    <th>Fecha Salida</th>
+                </tr>
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>" . $row["id"] . "</td>
+                                <td>" . $row["id_cliente"] . "</td>
+                                <td>" . $row["id_habitacion"] . "</td>
+                                <td>" . $row["fecha_entrada"] . "</td>
+                                <td>" . $row["fecha_salida"] . "</td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>No se encontraron reservas.</td></tr>";
                 }
-                echo "</table>";
-            } else {
-                echo "No se encontraron reservas.";
-            }
-            ?>
+                ?>
+            </table>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

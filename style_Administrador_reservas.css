@@ -43,4 +43,72 @@
   .sidebar a:hover {
     background-color: #ddd;
   }
+
+/* Estilo de la tabla */
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to top, #3e0a43, #1c0522);
+  }
+  
+  /* Estilo de los encabezados (th) */
+  th {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* Estilo de las filas pares */
+  tr:nth-child(even) {
+    background-color: rgba(62, 10, 67, 0.8);
+  }
+  
+  /* Estilo de los datos (td) */
+  td {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* Estilo del paginador */
+  #paginator {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  #paginator button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #3e0a43;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #paginator button.active {
+    background-color: #1c0522;
+  }
+  
+  /* Estilo del buscador */
+  #search-input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 200px;
+  }
+  
+ /* Centrar la tabla en la página */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.reservas {
+    width: 80%;
+    margin: 0 auto;
+}
+
   
