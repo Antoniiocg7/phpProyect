@@ -56,39 +56,56 @@ $result = $conn->query($sql);
     <div class="content">
         <div class="sidebar">
             <ul>
-                <li><a href="#">Agregar Reserva</a></li>
-                <li><a href="#">Editar Reservas</a></li>
-                <li><a href="#">Eliminar Reservas</a></li>
+                
+                <form action="Agregar_Reservas" method="POST">
+                    <input type="hidden" name="reserva_id" value="">
+                    <button type="submit" class="link-button">Agregar Reserva</button>
+                </form>
+            
+                <form action="editar_reserva.php" method="POST">
+                    <input type="hidden" name="reserva_id" value="">
+                    <button type="submit" class="link-button">Editar Reserva</button>
+                </form>
+
+                <form action="eliminar_reserva.php" method="POST">
+                    <input type="hidden" name="reserva_id" value="">
+                    <button type="submit" class="link-button">Eliminar Reserva</button>
+                </form>
+
                 <li><a href="#">Salir al Menú</a></li>
             </ul>
         </div>
 
         <div class="reservas">
             <div class="table-wrapper">
-                <table>
-                    <tr>
-                        <th>ID Reserva</th>
-                        <th>ID Cliente</th>
-                        <th>ID Habitación</th>
-                        <th>Fecha Entrada</th>
-                        <th>Fecha Salida</th>
-                    </tr>
-                    <?php
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>
-                                    <td>" . $row["id"] . "</td>
-                                    <td>" . $row["id_cliente"] . "</td>
-                                    <td>" . $row["id_habitacion"] . "</td>
-                                    <td>" . $row["fecha_entrada"] . "</td>
-                                    <td>" . $row["fecha_salida"] . "</td>
-                                </tr>";
+                <form method="POST" action="procesar_seleccion.php">
+                    <table>
+                        <tr>
+                            <th>Seleccionar</th>
+                            <th>ID Reserva</th>
+                            <th>ID Cliente</th>
+                            <th>ID Habitación</th>
+                            <th>Fecha Entrada</th>
+                            <th>Fecha Salida</th>
+                        </tr>
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>
+                                        <td><input type='checkbox' name='reserva_seleccionada[]' value='" . $row["id"] . "'></td>
+                                        <td>" . $row["id"] . "</td>
+                                        <td>" . $row["id_cliente"] . "</td>
+                                        <td>" . $row["id_habitacion"] . "</td>
+                                        <td>" . $row["fecha_entrada"] . "</td>
+                                        <td>" . $row["fecha_salida"] . "</td>
+                                    </tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='6'>No se encontraron reservas.</td></tr>";
                         }
-                    } else {
-                        echo "<tr><td colspan='5'>No se encontraron reservas.</td></tr>";
-                    }
-                    ?>
-                </table>
+                        ?>
+                    </table>
+                </form>
 
                 <div id="paginator">
                     <?php
@@ -138,9 +155,9 @@ $result = $conn->query($sql);
                         <label for="limit">Mostrar:</label>
                         <select name="limit" id="limit">
                             <option value="2" <?php echo $limit == 2 ? 'selected' : ''; ?>>2</option>
-                            <option value="20" <?php echo $limit == 4 ? 'selected' : ''; ?>>4</option>
-                            <option value="50" <?php echo $limit == 8 ? 'selected' : ''; ?>>8</option>
-                            <option value="100" <?php echo $limit == 10 ? 'selected' : ''; ?>>10</option>
+                            <option value="4" <?php echo $limit == 4 ? 'selected' : ''; ?>>4</option>
+                            <option value="8" <?php echo $limit == 8 ? 'selected' : ''; ?>>8</option>
+                            <option value="10" <?php echo $limit == 10 ? 'selected' : ''; ?>>10</option>
                         </select>
                         <input type="submit" value="Actualizar">
                     </form>

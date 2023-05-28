@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: montserrat;
+    font-family: 'Poppins',sans-serif;
   }
   
   header {
@@ -16,7 +16,8 @@
   .content {
     display: flex;
   }
-  
+
+/*Estilo de la barra lateral*/
   .sidebar {
     background-color: #f1f1f1;
     width: 200px;
@@ -32,6 +33,21 @@
   .sidebar li {
     margin-bottom: 10px;
   }
+
+.link-button {
+  text-decoration: none;
+  border-bottom: none;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  }
+
+  .link-button:hover {
+    text-decoration: underline;
+  }
+
   
   .sidebar a {
     display: block;
