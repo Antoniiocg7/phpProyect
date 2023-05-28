@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src='/pruebas_php/models/pageModel.js'></script>
+    <script src="../../models/pageModel.js"></script>
     <title>
         <?php
 
@@ -28,7 +28,7 @@
     <div class="container-fluid bg-dark p-2 mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/pruebas_php/index.php">Inicio</a>
+                <a class="navbar-brand" href="../../pagina_inicio/Index.php">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,11 +36,29 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Username
+                                Clientes
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/pruebas_php/view/username/index.php">Usuarios</a></li>
-                                <li><a class="dropdown-item" href="/pruebas_php/view/username/create.php">Agregar nuevos usuarios</a></li>
+                                <li><a class="dropdown-item" href="../cliente/index.php">Listado Clientes</a></li>
+                                <li><a class="dropdown-item" href="../cliente/create.php">Agregar nuevos clientes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reservas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../cliente/index.php">Listado Reservas</a></li>
+                                <li><a class="dropdown-item" href="../cliente/create.php">Agregar nuevas reservas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Habitaciones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../cliente/index.php">Listado Habitaciones</a></li>
+                                <li><a class="dropdown-item" href="../cliente/create.php">Agregar nuevas habitaciones</a></li>
                             </ul>
                         </li>
                     </ul>
