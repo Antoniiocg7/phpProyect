@@ -1,5 +1,5 @@
 <?php
-// incluir el archivo de la configuración de la base de datos
+// Incluir el archivo de configuración de la base de datos
 $config = require 'config/dataBase.php';
 
 // Crear una instancia de la clase DataBase
@@ -39,7 +39,6 @@ $sql = "SELECT * FROM reserva LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 ?>
 
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +55,6 @@ $result = $conn->query($sql);
     <div class="content">
         <div class="sidebar">
             <ul>
-                
                 <form action="Agregar_Reservas" method="POST">
                     <input type="hidden" name="reserva_id" value="">
                     <button type="submit" class="link-button">Agregar Reserva</button>
@@ -167,3 +165,4 @@ $result = $conn->query($sql);
     </div>
 </body>
 </html>
+
