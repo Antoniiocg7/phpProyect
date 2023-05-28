@@ -30,18 +30,40 @@
             return ($stmt->execute()) ? $stmt->fetch() : false;
         }
 
-        public function obtener_usuarios($pagina_actual, $registros_pagina) {
+        public function obtener_usuarios_filtro($pagina_actual, $registros_pagina, $dni_filtrado, $correo_filtrado) {
 
             $pagina_inicio = ($pagina_actual - 1) * $registros_pagina;
 
-            $stmt = $this->PDO->prepare("SELECT COUNT(*) FROM cliente");
-            $stmt->execute();
+            $condiciones = "";
+            $parametros = array();
+            
+            if (!empty($dni_filtrado)) {
+                $condiciones .= "dni LIKE :dni";
+                $dni_filtrado = "%$dni_filtrado%";
+                $parametros[':dni'] = $dni_filtrado;
+            }
+            
+            if (!empty($correo_filtrado)) {
+                if (!empty($condiciones)) {
+                    $condiciones .= " AND ";
+                }
+                $condiciones .= "correo LIKE :correo";
+                $correo_filtrado = "%$correo_filtrado%";
+                $parametros[':correo'] = $correo_filtrado;
+            }
+
+            $stmt = $this->PDO->prepare("SELECT COUNT(*) FROM cliente".(!empty($condiciones) ? " WHERE $condiciones" : ""));
+            $stmt->execute($parametros);
             $total_registros = $stmt->fetchColumn();
 
 
-            $stmt = $this->PDO->prepare("SELECT * FROM cliente limit :pagina_inicio, :registros_pagina");
+            $stmt = $this->PDO->prepare("SELECT * FROM cliente".(!empty($condiciones) ? " WHERE $condiciones" : "")." LIMIT :pagina_inicio, :registros_pagina");
             $stmt->bindParam(":pagina_inicio", $pagina_inicio, PDO::PARAM_INT);
             $stmt->bindParam(":registros_pagina", $registros_pagina, PDO::PARAM_INT);
+            foreach ($parametros as $parametro => $valor) {
+                $stmt->bindValue($parametro, $valor);
+            }
+
             $stmt->execute();
             $pagina = $stmt->fetchAll();
 
@@ -82,21 +104,6 @@
             $stmt = $this->PDO->prepare("DELETE FROM cliente where dni = :dni");
             $stmt->bindParam(":dni", $dni);
             return ($stmt->execute()) ? true : false;
-        }
-
-        public function filtrar($nombre_filtrado){
-
-            $nombre_filtrado = $_GET['filtro_nombre'] ?? '';
-
-            if(!empty($_GET["filtro_nombre"])){
-
-                $stmt = $this->PDO->prepare("SELECT * FROM cliente WHERE nombre LIKE ?");
-                $nombre_filtrado = "%$nombre_filtrado%";
-                $stmt->bindParam(1, $nombre_filtrado);
-                $stmt->execute();
-                return $stmt->fetchAll();
-            }
-            
         }
 
     }

@@ -5,15 +5,11 @@
     $clienteController = new ClienteController();
     $pagina_actual = 1; 
     $registros_pagina = 10;
-    $paginador = $clienteController->obtener_usuarios($pagina_actual, $registros_pagina);
+    $dni_filtrado = isset($_GET["filtro_dni"]) ? $_GET["filtro_dni"] : "";
+    $correo_filtrado = isset($_GET["filtro_correo"]) ? $_GET["filtro_correo"] : "";
+    
+    $clientes_filtrados = $clienteController->obtener_usuarios_filtro($pagina_actual, $registros_pagina, $dni_filtrado, $correo_filtrado);
 
-    if(isset($_GET['filtro_nombre'])) {
-        $nombre_filtrado = $_GET['filtro_nombre'];
-        $usuarios_filtrados = $clienteController->filtrar($nombre_filtrado);
-        
-    } else {
-        $usuarios_filtrados = $paginador['pagina'];
-    }
 ?>
 
 <div class="mb-3">
@@ -21,7 +17,8 @@
 </div>
 
 <form method="get" action="index.php">
-    <input type="text" name="filtro_nombre" placeholder="Introduzca un nombre">
+    <input type="text" name="filtro_dni" placeholder="Introduzca un DNI">
+    <input type="text" name="filtro_correo" placeholder="Introduzca un correo">
     <input type="submit" value="Filtrar">
 </form>
 
@@ -32,17 +29,17 @@
         <th>Acciones</th>
     </thead>
     <tbody>
-        <?php if(isset($usuarios_filtrados) && count($usuarios_filtrados) > 0): ?>
-            <?php foreach($usuarios_filtrados as $pag): ?>
+        <?php if(isset($clientes_filtrados) && count($clientes_filtrados) > 0): ?>
+            <?php foreach($clientes_filtrados["pagina"] as $cliente): ?>
                 <tr>
-                    <td><?php echo $pag["dni"] ?></td>
-                    <td><?php echo $pag["correo"] ?></td>
+                    <td><?php echo $cliente["dni"] ?></td>
+                    <td><?php echo $cliente["correo"] ?></td>
                     <td>
-                        <a href="show.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-primary">Ver</a>
-                        <a href="edit.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-success">Modificar</a>
-                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $pag["dni"] ?>">Eliminar</a>
+                        <a href="show.php?dni=<?php echo $cliente["dni"] ?>" class="btn btn-primary">Ver</a>
+                        <a href="edit.php?dni=<?php echo $cliente["dni"] ?>" class="btn btn-success">Modificar</a>
+                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $cliente["dni"] ?>">Eliminar</a>
 
-                        <div class="modal fade" id="exampleModal<?php echo $pag["dni"] ?>" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal<?php echo $cliente["dni"] ?>" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -56,7 +53,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <a href="delete.php?dni=<?php echo $pag["dni"] ?>" class="btn btn-danger">Eliminar</a>
+                                        <a href="delete.php?dni=<?php echo $cliente["dni"] ?>" class="btn btn-danger">Eliminar</a>
                                     </div>
                                 </div>
                             </div>
@@ -73,19 +70,19 @@
     </tbody>
 </table>
 <form action="index.php" method="get">
-    <input type="hidden" name="pagina_actual" value="<?php echo $paginador["pagina_actual"] ?>">
-    <input type="hidden" name="total_paginas" value="<?php echo $paginador["total_paginas"] ?>">
-    <input type="submit" name="primera" value="<<" onclick="primera_pagina()" <?php if ($paginador["pagina_actual"] == 1) echo "disabled"; ?>>
-    <input type="submit" name="anterior" value="<" onclick="anterior_pagina()" <?php if ($paginador["pagina_actual"] == 1) echo "disabled"; ?>>
-    <input type="text" name="pagina" value="<?php echo $paginador["pagina_actual"] ?>" style="text-align: center;">
-    <input type="submit" name="siguiente" value=">" onclick="siguiente_pagina()" <?php if ($paginador["pagina_actual"] == $paginador["total_paginas"]) echo "disabled";?> >
-    <input type="submit" name="ultima" value=">>" onclick="ultima_pagina()" <?php if ($paginador["pagina_actual"] == $paginador["total_paginas"]) echo "disabled"; ?>>
+    <input type="hidden" name="pagina_actual" value="<?php echo $clientes_filtrados["pagina_actual"] ?>">
+    <input type="hidden" name="total_paginas" value="<?php echo $clientes_filtrados["total_paginas"] ?>">
+    <input type="submit" name="primera" value="<<" onclick="primera_pagina()" <?php if ($clientes_filtrados["pagina_actual"] == 1) echo "disabled"; ?>>
+    <input type="submit" name="anterior" value="<" onclick="anterior_pagina()" <?php if ($clientes_filtrados["pagina_actual"] == 1) echo "disabled"; ?>>
+    <input type="text" name="pagina" value="<?php echo $clientes_filtrados["pagina_actual"] ?>" style="text-align: center;">
+    <input type="submit" name="siguiente" value=">" onclick="siguiente_pagina()" <?php if ($clientes_filtrados["pagina_actual"] == $clientes_filtrados["total_paginas"]) echo "disabled";?> >
+    <input type="submit" name="ultima" value=">>" onclick="ultima_pagina()" <?php if ($clientes_filtrados["pagina_actual"] == $clientes_filtrados["total_paginas"]) echo "disabled"; ?>>
 </form>
 
 <br>
 <?php
-    echo "Total registros: " . $paginador["total_registros"] . "<br>";
-    echo "Numero de paginas: " .$paginador["total_paginas"];
+    echo "Total registros: " . $clientes_filtrados["total_registros"] . "<br>";
+    echo "Numero de paginas: " .$clientes_filtrados["total_paginas"];
 ?>
 <?php
     require_once "../header_footer/footer.php";

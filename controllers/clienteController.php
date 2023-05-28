@@ -17,11 +17,11 @@
             return ($this->model->show($dni) != false) ? $this->model->show($dni) : header("Location: index.php");
         }
 
-        public function obtener_usuarios($pagina_actual, $registros_pagina) {
+        public function obtener_usuarios_filtro($pagina_actual, $registros_pagina, $dni_filtrado, $correo_filtrado) {
             if (isset($_GET["pagina"])) {
                 $pagina_actual = $_GET["pagina"];
             }
-            return $this->model->obtener_usuarios($pagina_actual, $registros_pagina);
+            return $this->model->obtener_usuarios_filtro($pagina_actual, $registros_pagina, $dni_filtrado, $correo_filtrado);
         }
 
         public function update($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion) {
@@ -34,10 +34,5 @@
             : header("Location: show.php?id=".$dni);
         }
 
-        public function filtrar($nombre_filtrado){
-            
-            return ($this->model->filtrar($nombre_filtrado));
-            
-        }
     }
 ?>

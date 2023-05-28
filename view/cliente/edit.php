@@ -3,15 +3,14 @@
     require_once "../../controllers/clienteController.php";
     $clienteController = new ClienteController();
     $cliente = $clienteController->show($_GET["dni"]);
-    //TODO: Optimizar rutas
 ?>
 
 <h2>Modificando Registro</h2>
 <form action="update.php" method="post" autocomplete="off">
     <div class="mb-3 row">
-        <label for="id_dni" class="col-sm-2 col-form-label">DNI</label>
+        <label for="id_dni_edit" class="col-sm-2 col-form-label">DNI</label>
         <div class="col-sm-10">
-        <input type="text" name="dni" readonly class="form-control-plaintext" id="id_dni" value="<?php echo $cliente["dni"] ?>">
+        <input type="text" name="dni_edit" readonly class="form-control-plaintext" id="id_dni_edit" value="<?php echo $cliente["dni"] ?>">
         </div>
     </div>
     <div class="mb-3 row">
