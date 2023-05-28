@@ -48,30 +48,56 @@ $result = $conn->query($sql);
                 <button id="search-button">Buscar</button>
             </div>
             
-            <table>
-                <tr>
-                    <th>ID Reserva</th>
-                    <th>ID Cliente</th>
-                    <th>ID Habitación</th>
-                    <th>Fecha Entrada</th>
-                    <th>Fecha Salida</th>
-                </tr>
-                <?php
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>
-                                <td>" . $row["id"] . "</td>
-                                <td>" . $row["id_cliente"] . "</td>
-                                <td>" . $row["id_habitacion"] . "</td>
-                                <td>" . $row["fecha_entrada"] . "</td>
-                                <td>" . $row["fecha_salida"] . "</td>
-                            </tr>";
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>ID Reserva</th>
+                        <th>ID Cliente</th>
+                        <th>ID Habitación</th>
+                        <th>Fecha Entrada</th>
+                        <th>Fecha Salida</th>
+                    </tr>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                    <td>" . $row["id"] . "</td>
+                                    <td>" . $row["id_cliente"] . "</td>
+                                    <td>" . $row["id_habitacion"] . "</td>
+                                    <td>" . $row["fecha_entrada"] . "</td>
+                                    <td>" . $row["fecha_salida"] . "</td>
+                                </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5'>No se encontraron reservas.</td></tr>";
                     }
-                } else {
-                    echo "<tr><td colspan='5'>No se encontraron reservas.</td></tr>";
-                }
-                ?>
-            </table>
+                    ?>
+                </table>
+
+                <div id="paginator">
+                    <?php
+                    $limit = 10; // Número de registros por página
+                    $total_records = $result->num_rows; // Total de registros
+                    $total_pages = ceil($total_records / $limit); // Total de páginas
+
+                    if (!isset($_GET['page'])) {
+                        $page = 1;
+                    } else {
+                        $page = $_GET['page'];
+                    }
+
+                    $start = ($page - 1) * $limit; // Registro de inicio para cada página
+
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        if ($i == $page) {
+                            echo "<button class='active'><a href='?page=" . $i . "'>" . $i . "</a></button>";
+                        } else {
+                            echo "<button><a href='?page=" . $i . "'>" . $i . "</a></button>";
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
