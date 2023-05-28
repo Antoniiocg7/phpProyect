@@ -11,9 +11,29 @@
     $clientes_filtrados = $clienteController->obtener_usuarios_filtro($pagina_actual, $registros_pagina, $dni_filtrado, $correo_filtrado);
 
 ?>
+<style>
+    body{
+        background-color: #e0aaff;
+    }
+    table td{
+        color: #240046;
+    }
+    input{
+        background-color: #efe5dc;
+        color: #240046;
+        border-radius: 5px;
+        border: 1px solid #210b2c;
+        outline: none;
+        box-shadow: 1px 1px 1px 1px rgba(33, 11, 44, 0.5);
+    }
+    input:disabled{
+        background-color: #e6ccb2;
+    }
+    
+</style>
 
 <div class="mb-3">
-    <a class="btn btn-primary" href="/phpProyect/view/cliente/create.php">Agregar cliente</a>
+    <a class="btn btn-primary" href="/phpProyect/view/cliente/create.php">Agregar nuevo cliente</a>
 </div>
 
 <form method="get" action="index.php">
@@ -32,12 +52,12 @@
         <?php if(isset($clientes_filtrados) && count($clientes_filtrados) > 0): ?>
             <?php foreach($clientes_filtrados["pagina"] as $cliente): ?>
                 <tr>
-                    <td><?php echo $cliente["dni"] ?></td>
-                    <td><?php echo $cliente["correo"] ?></td>
+                    <td class="align-middle"><?php echo $cliente["dni"] ?></td>
+                    <td class="align-middle"><?php echo $cliente["correo"] ?></td>
                     <td>
-                        <a href="show.php?dni=<?php echo $cliente["dni"] ?>" class="btn btn-primary">Ver</a>
-                        <a href="edit.php?dni=<?php echo $cliente["dni"] ?>" class="btn btn-success">Modificar</a>
-                        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $cliente["dni"] ?>">Eliminar</a>
+                        <a href="show.php?dni=<?php echo $cliente["dni"] ?>" class="btn btn-primary mb-1">Ver</a>
+                        <a href="edit.php?dni=<?php echo $cliente["dni"] ?>" class="btn btn-success mb-1">Modificar</a>
+                        <a class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $cliente["dni"] ?>">Eliminar</a>
 
                         <div class="modal fade" id="exampleModal<?php echo $cliente["dni"] ?>" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
