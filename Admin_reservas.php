@@ -34,6 +34,15 @@ $offset = ($page - 1) * $limit;
 // Consultar las reservas paginadas
 $sql = "SELECT * FROM reserva LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
+
+// Procesar la solicitud de edición de reserva
+if (isset($_POST['editar_reserva'])) {
+    $reserva_id = $_POST['editar_reserva'];
+
+    // Redirigir a la página de edición de reserva con el ID especificado
+    header("Location: editar_reserva.php?id=$reserva_id");
+    exit();
+}
 ?>
 
 <head>
@@ -78,11 +87,12 @@ $result = $conn->query($sql);
                                         <td>" . $row["fecha_salida"] . "</td>
                                         <td>
                                             <button type='submit' name='eliminar_reserva' value='" . $row["id"] . "' class='delete-button'>Eliminar</button>
+                                            <button type='submit' name='editar_reserva' value='" . $row["id"] . "' class='edit-button'>Editar</button>
                                         </td>
                                     </tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='6'>No se encontraron reservas.</td></tr>";
+                            echo "<tr><td colspan='7'>No se encontraron reservas.</td></tr>";
                         }
 
                         // Procesar la solicitud de eliminación de reserva
@@ -90,16 +100,13 @@ $result = $conn->query($sql);
                             $reserva_id = $_POST['eliminar_reserva'];
 
                             // Aquí debes escribir la lógica para eliminar la reserva de la base de datos
-                            $delete_sql = "DELETE FROM reserva WHERE id = '$reserva_id'";
-                            if ($conn->query($delete_sql) === TRUE) {
-                                echo "Reserva eliminada exitosamente.";
-                            } else {
-                                echo "Error al eliminar la reserva: " . $conn->error;
-                            }
-                            
-                            // Actualizar la página después de eliminar la reserva
-                            echo "<meta http-equiv='refresh' content='0'>";
+
+                            // Luego de eliminar la reserva, puedes redirigir nuevamente a la página de gestión de reservas
+                            header("Location: eliminar_reserva.php");
+                            exit();
                         }
+
+                        
                         ?>
                     </table>
                 </form>

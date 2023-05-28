@@ -18,7 +18,7 @@
 
 /*Estilo de la barra lateral*/
   .sidebar {
-    background-color: #f1f1f1;
+    background: linear-gradient(to top,#3e0a43,#1c0522);
     width: 200px;
     height: calc(100vh - 60px); /* Ajustar la altura del sidebar */
     padding: 20px;
