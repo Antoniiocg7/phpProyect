@@ -10,7 +10,7 @@
 
         public function guardar($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion){
             $dni = $this->model-> insertar($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion);
-            return ($dni != false) ? header("Location: show.php?id=".$dni)  : header("Location: create.php");
+            return ($dni != false) ? header("Location: show.php?dni=".$dni)  : header("Location: create.php");
         }
 
         public function show($dni){
@@ -25,13 +25,13 @@
         }
 
         public function update($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion) {
-            return ($this->model->update($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion) != false) ? header( "Location: show.php?id=".$dni ) 
+            return ($this->model->update($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion) != false) ? header( "Location: show.php?dni=".$dni ) 
             : header( "Location: index.php" );
         }
 
         public function delete($dni){
             return ($this->model->delete($dni)) ? header("Location: index.php") 
-            : header("Location: show.php?id=".$dni);
+            : header("Location: show.php?dni=".$dni);
         }
 
     }
