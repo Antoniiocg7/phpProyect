@@ -43,6 +43,20 @@ if (isset($_POST['editar_reserva'])) {
     header("Location: editar_reserva.php?id=$reserva_id");
     exit();
 }
+
+// Procesar la solicitud de eliminación de reserva
+if (isset($_POST['eliminar_reserva'])) {
+    $reserva_id = $_POST['eliminar_reserva'];
+
+    // Aquí debes escribir la lógica para eliminar la reserva de la base de datos
+    $sql_delete = "DELETE FROM reserva WHERE id = $reserva_id";
+    if ($conn->query($sql_delete) === TRUE) {
+        echo "Reserva eliminada exitosamente.";
+    } else {
+        echo "Error al eliminar la reserva: " . $conn->error;
+    }
+}
+
 ?>
 
 <head>
@@ -94,15 +108,6 @@ if (isset($_POST['editar_reserva'])) {
                         } else {
                             echo "<tr><td colspan='7'>No se encontraron reservas.</td></tr>";
                         }
-
-                        // Procesar la solicitud de eliminación de reserva
-                        if (isset($_POST['eliminar_reserva'])) {
-                            $reserva_id = $_POST['eliminar_reserva'];
-                            header("Location: eliminar_reserva.php");
-                            exit();
-                        }
-
-                        
                         ?>
                     </table>
                 </form>
