@@ -10,7 +10,7 @@
 
         public function registrar_cliente($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion){
             $dni = $this->model-> registrar_cliente($dni,$email,$contrasena,$nombre,$apellido_1,$apellido_2,$telefono,$direccion);
-            return ($dni != false) ? header("Location: ../login/login.html")  : header("Location: ../registro/registro.php");
+            return ($dni != false) ? header("Location: ../login/login.php")  : header("Location: ../registro/registro.php");
         }
 
         public function comprobar_registro($dni){
