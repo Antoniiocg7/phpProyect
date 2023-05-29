@@ -98,10 +98,6 @@ if (isset($_POST['editar_reserva'])) {
                         // Procesar la solicitud de eliminación de reserva
                         if (isset($_POST['eliminar_reserva'])) {
                             $reserva_id = $_POST['eliminar_reserva'];
-
-                            // Aquí debes escribir la lógica para eliminar la reserva de la base de datos
-
-                            // Luego de eliminar la reserva, puedes redirigir nuevamente a la página de gestión de reservas
                             header("Location: eliminar_reserva.php");
                             exit();
                         }
