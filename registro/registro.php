@@ -94,7 +94,7 @@
                             <input type="text" name="direccion" class="form-control" id="id_direccion" required>
                         </div>
                         <div class="text-center">
-                            <a class="btn btn-danger mx-2" href="../login/login.html">Cancelar</a>
+                            <a class="btn btn-danger mx-2" href="../login/login.php">Cancelar</a>
                             <button type="submit" class="btn btn-primary mx-2">Guardar</button>
                         </div>
                     </form>
