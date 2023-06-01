@@ -4,7 +4,7 @@
         private $PDO;
 
         public function __construct(){
-            require_once("../config/dataBase.php");
+            require_once(__DIR__."/../config/dataBase.php");
             $connection = new DataBase();
             $this->PDO = $connection->conectar_bd();
         }

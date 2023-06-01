@@ -1,5 +1,8 @@
 <?php
-  require_once "../header_footer/header.php";
+    require_once "../header_footer/header.php";
+    require_once '../../config/sessionManager.php';
+
+    SessionManager::restringir_acceso();
 ?>
 
 

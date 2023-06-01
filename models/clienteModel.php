@@ -30,6 +30,12 @@
             return ($stmt->execute()) ? $stmt->fetch() : false;
         }
 
+        public function mostrar_reservas($dni){
+            $stmt = $this->PDO->prepare("SELECT * FROM reserva where id_cliente = :dni");
+            $stmt->bindParam(":dni", $dni);
+            return ($stmt->execute()) ? $stmt->fetchAll() : false;
+        }
+
         public function obtener_usuarios_filtro($pagina_actual, $registros_pagina, $dni_filtrado, $correo_filtrado) {
 
             $pagina_inicio = ($pagina_actual - 1) * $registros_pagina;

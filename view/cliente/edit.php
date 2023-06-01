@@ -1,6 +1,10 @@
 <?php
     require_once "../header_footer/header.php";
     require_once "../../controllers/clienteController.php";
+    require_once '../../config/sessionManager.php';
+
+    SessionManager::restringir_acceso();
+    
     $clienteController = new ClienteController();
     $cliente = $clienteController->show($_GET["dni"]);
 ?>

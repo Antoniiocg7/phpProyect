@@ -17,6 +17,10 @@
             return ($this->model->show($dni) != false) ? $this->model->show($dni) : header("Location: index.php");
         }
 
+        public function mostrar_reservas($dni){
+            return ($this->model->mostrar_reservas($dni) != false) ? $this->model->mostrar_reservas($dni) : false;
+        }
+
         public function obtener_usuarios_filtro($pagina_actual, $registros_pagina, $dni_filtrado, $correo_filtrado) {
             if (isset($_GET["pagina"])) {
                 $pagina_actual = $_GET["pagina"];
