@@ -6,11 +6,14 @@
     if($usuario_existe_checker==true){
         session_start();
         $_SESSION["dni_cliente"] = $_POST["login_dni"];
-        $loginController->es_admin($_POST["login_dni"]);
+        if($loginController->es_admin($_POST["login_dni"])!=false){
+            header("Location: ../view/cliente/index.php");
+        }else{
+            header("Location: ../../../phpProyect/view/cliente/show.php?dni=".$_POST["login_dni"]);
+        }
         
     }else{
         session_start();
-        $_SESSION["dni_cliente"] = $_POST["login_dni"];
         header("Location: login.php");
     }
     

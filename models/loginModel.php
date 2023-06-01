@@ -12,7 +12,7 @@
         public function es_admin($dni){
             $stmt = $this->PDO->PREPARE("SELECT administrador from cliente where dni = :dni");
             $stmt->bindParam(":dni", $dni);
-            IF ($stmt->execute()) {
+            if ($stmt->execute()) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $result['administrador'] == 1;
             }else{
