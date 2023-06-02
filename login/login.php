@@ -22,7 +22,6 @@
       </div>
       <div class="pass">¿Has olvidado la contraseña?</div>
       <input type="submit" value="Login">
-      <a href="../pagina_inicio/Index.php">PAGINA INICIO</a>
       <div class="Link">
         ¿No eres un miembro? <a href="../registro/registro.php">Regístrate</a>
       </div>
