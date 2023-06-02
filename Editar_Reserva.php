@@ -7,9 +7,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <!-- Contenido de la barra lateral -->
-        </div>
         <div class="form-container">
             <h1>Editar Reservas</h1>
             <?php
@@ -60,11 +57,33 @@
                 }
             ?>
             <form method="POST" action="">
-                <label for="id_cliente">ID Cliente:</label>
-                <input type="text" name="id_cliente" value="<?php echo $reserva['id_cliente']; ?>">
-                
+            <label for="id_cliente">ID Cliente:</label>
+                <select name="id_cliente">
+                <?php
+                    // Consultar los clientes de la base de datos
+                    $sql_clientes = "SELECT dni, nombre FROM cliente";
+                    $result_clientes = $conn->query($sql_clientes);
+
+                    while ($row_cliente = $result_clientes->fetch_assoc()) {
+                        $selected = ($row_cliente['dni'] == $reserva['id_cliente']) ? 'selected' : '';
+                        echo "<option value=\"{$row_cliente['dni']}\" $selected>{$row_cliente['nombre']}</option>";
+                    }
+                ?>
+                </select>
+
                 <label for="id_habitacion">ID Habitación:</label>
-                <input type="text" name="id_habitacion" value="<?php echo $reserva['id_habitacion']; ?>">
+                    <select name="id_habitacion">
+                     <?php
+                        // Consultar las habitaciones de la base de datos
+                        $sql_habitaciones = "SELECT id, nombre FROM habitacion";
+                        $result_habitaciones = $conn->query($sql_habitaciones);
+
+                        while ($row_habitacion = $result_habitaciones->fetch_assoc()) {
+                             $selected = ($row_habitacion['id'] == $reserva['id_habitacion']) ? 'selected' : '';
+                            echo "<option value=\"{$row_habitacion['id']}\" $selected>{$row_habitacion['id']}</option>";
+                        }
+                    ?>
+                    </select>
                 
                 <label for="fecha_entrada">Fecha Entrada:</label>
                 <input type="date" name="fecha_entrada" value="<?php echo $reserva['fecha_entrada']; ?>">
